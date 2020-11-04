@@ -4,7 +4,7 @@ from models.album import Album
 from repositories import album_repository
 
 def save_artist(artist):
-    sql = "INSERT INTO artists (name) VALUES %s RETURNING *"
+    sql = "INSERT INTO artists (name) VALUES (%s) RETURNING *"
     values = [artist.name]
     results = run_sql(sql, values)
     id = results[0]['id']
